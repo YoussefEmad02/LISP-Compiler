@@ -1,0 +1,38 @@
+Program --> string | Statements
+Statements --> List Statements |$
+List --> (ListItem) 
+ListItem --> Atom | Statement | $
+Atom --> string | constant         
+Statement --> setq identifier Terms
+        | def constat identifier terms 
+            | write-line string 
+        | print string | terms
+            | write string | Term ##
+            | when (WhenTerm) Statements
+            | dotimes (identifier Factor ) Statements 
+            | identifier Factors //for function calls
+            | Incrementation identifier IncrementVar 
+            | Expression 
+            | Condition 
+            | BoolExp ####check en el 7gat deh msh btcall $
+ 
+WhenTerm--> BoolExp | Condition
+Terms --> string | Term                 
+Term --> Factor | (BoolItem)
+Factors --> Factor Factors | $
+BoolExp--> LogicalOp BoolExp' BoolExp'
+BoolExp'--> (BoolItem) | Factor | NIL | T | $
+BoolItem--> LogicExp | BoolExp
+LogicExp--> Expression | Condition
+Expression --> op Expression' Expression' or more
+Condition → RelOp Expression' Expression'
+Expression'--> (Expression) | Factor 
+Factor → identifier | constants 
+Op → + | - | * | / | mod | rem 
+RelOp → = | > | < | <= | >= 
+Incrementation --> incf | decf 
+IncrementVar --> Factor | $ 
+LogicalOp --> not| and | or
+write string | cOnstant 
+print string | cOnstant 
+def constant zy elset q
